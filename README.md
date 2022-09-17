@@ -46,8 +46,8 @@ Untuk request atau report bug bisa chat saya disini [Whatsapp](https://wa.me/628
 > pkg install git
 > pkg install ffmpeg && pkg install libwebp
 > pkg install nodejs
-> git clone https://github.com/fdhlgrphy/Crizzy-Md
-> cd Crizzy-Md
+> git clone https://github.com/fdhlgrphy/Crizzy-Bot
+> cd Crizzy-Bot
 > npm install
 # atau
 >yarn install
