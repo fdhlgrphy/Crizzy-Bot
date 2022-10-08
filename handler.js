@@ -384,6 +384,7 @@ switch(command){
  				 }                      
 				break
 			case 'sc':
+			case 'dldxil': // biar nggak nabrak sama bot lain
 			case 'script':
 			case 'sourcecode':
 			case 'credit':
@@ -393,6 +394,7 @@ switch(command){
            	 }
            	 break
 			case 'donasi': 
+			case 'cuihhxdn': // biar nggak nabrak sama bot lain
 					case 'sewabot': 
 					case 'sewa': 
 					case 'buypremium': 
@@ -723,12 +725,67 @@ Konfirmasi pembayaran mu dengan menunjjukan bukti transfer kepada owner!
 				m.reply(`*Success*\n\n*Follow Intruction In Private Chat*\n\n*Name*: ${name}\n*Password*: **********g`)
 				conn.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`,'*Token*: '+ '\n\n*type : .login <token>*')
 				break*/
-			case 'owner':
-			case 'creator': {
-                conn.sendContact(from, global.owner, m)
-          	  }
-        	    break
-			case'nulis':
+
+// Iya deh :v
+// follow https://github.com/Chandra-XD
+case 'owner':
+case 'creator': {
+sections = [
+                {
+                title: `Hai ${pushname} 👋`,
+                rows: [
+                {title: "Biodata", rowId: `.biodatacookxkvz`, description: `Menampilkan Biodata Owner`},
+                {title: "Nomor", rowId: `.nmrownxnjayxz`, description: `Menampilkan Nomor Owner`},
+                {title: "Sewabot", rowId: `.cuihhxdn`, description: `Sewabott Murah`},
+                {title: "Script Bot", rowId: `.dldxil`, description: `Menampilkan Script Bot`}
+                ]
+                },
+                ]
+conn.sendListMsg(from, `Silahkan click tombol dibawah ini`, `© 2022 Fadhil Graphy`, `Hai ${pushname} 👋`, `Click Here`, sections, fake)
+      }
+break
+case 'nmrownxnjayxz': { // yg lain yg ada button owner ganti ke ini biar langsung ke contact
+// follow https://github.com/Chandra-XD
+cok = {key: { fromMe: false, participant: `0@s.whatsapp.net`, ...({ remoteJid: "status@broadcast" })}, message: { 'contactMessage': { 'displayName': `Crizzy Bot`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;Crizzy Bot,;;;\nFN:Crizzy Bot,\nitem1.TEL;waid=0:0\nitem1.X-ABLabell:Ponsel\nEND:VCARD`} }}
+conn.sendContact(from, global.owner, cok)
+}
+break
+// add by Chandra XD
+// follow https://github.com/Chandra-XD
+case 'biodatacookxkvz': {
+nduwur = `┍┈–––• *BIODATA OWNER*
+┆⫹⫺ Nama : -
+┆⫹⫺ Hobby : -
+┆⫹⫺ Status : -
+┆⫹⫺ Birthday : -
+┆⫹⫺ Address : -
+┆⫹⫺ Hobby : -
+└––––––––––––––––––·•
+
+┍┈––––––• *SKILLS*
+┆> JavaScript [-%]
+┆> Html [-%]
+┆> CSS [-%]
+└––––––––––––––––––·•\n`
+ngisor = `Social Media :
+YouTube : -
+Instragram : -
+TikTok : -
+Github : -
+Email : -
+Whatsapp : -` // tambahin sendiri anjeng
+btnm = [{buttonId: `nmrownxnjayxz`, buttonText: {displayText: 'Owner Number'}, type: 1}]
+for (let i of profilebio) {
+try {
+ppne = await conn.profilePictureUrl(i + "@s.whatsapp.net", 'image')
+} catch {
+ppne = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+conn.sendMessage(from, { caption: nduwur, image: { url: ppne }, buttons: btnm, footer: ngisor })
+}
+}
+break
+			case 'nulis':
 				if(args.length < 1) return m.reply('text nya')
 				m.reply(act.proc)
 				await conn.sendMessage(from,{image:{url:`https://api.zekais.com/bukukanan?text=${body.slice(6)}&apikey=zekais`},caption:act.done},{quote:m}).catch((e) => m.reply(e))
