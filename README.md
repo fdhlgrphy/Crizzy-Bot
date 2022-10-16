@@ -3,7 +3,8 @@
 <div align="center">
 <img src="https://telegra.ph/file/45729dbb6011c6da5c6ff.jpg" width="150" height="150" border="0" alt="PFFP">
 
-<br> Gunakan dengan risiko Anda sendiri!, Jika ingin membantu mengembangkan/fix eror bisa langsung commit!
+<br> Gunakan dengan risiko Anda sendiri!, Jika ingin membantu mengembangkan/fix eror bisa langsung commit!<br>
+  <h4>Yang bisa bantu fix bug, bisa langsung commit/fix aja yaa😊</h4>
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-d6cc0f?style=for-the-badge&logo=javascript&logoColor=white)](https://javascript.com) [![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 
