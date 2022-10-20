@@ -15,7 +15,7 @@ global.smm = {
 }
 
 // Other
-global.owner = ['6283102650464',"6282135724604"]
+global.owner = ['573154498492',"573154498492"]
 global.premium = ['6283102650464']
 global.profilebio = ['6283102650464'] // ini ganti nomor lu ntar bisa nampilin pp lu
 global.sponsor = 'no sponsors in:('
