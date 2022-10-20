@@ -631,17 +631,76 @@ Konfirmasi pembayaran mu dengan menunjjukan bukti transfer kepada owner!
 				}
 				break
 			case 'listharga':
-			case 'prichlist':
+	    		case 'daftarharga':
+	    		case 'prichlist':
 			case 'pricelist': {
-				feta = await fetchJson(`https://ampibismm.my.id/api/json?bot=true&api_key=${global.ApiKey}&action=pricelist&type=semua`)
+				list = []
+					list.push({
+    					title: `Semua Kategori`,
+    					rowId: `pricelistqw semua`,
+    					description: `Daftar harga untuk semua layanan dan kategori. Note: tidak menampilkan secara maksimal`
+  					}, {
+    					title: `Followers`,
+    					rowId: `pricelistqw follower`,
+    					description: `Daftar harga follower untuk semua layanan`
+  					}, {
+    					title: `Likes`,
+    					rowId: `pricelistqw like`,
+    					description: `Daftar harga like untuk semua layanan`
+  					}, {
+    					title: `Views`,
+    					rowId: `pricelistqw follower`,
+    					description: `Daftar harga views untuk semua layanan`
+  					}, {
+    					title: `Spotify`,
+    					rowId: `pricelistqw spotify`,
+    					description: `Daftar harga untuk layanan Spotify`
+  					}, {
+    					title: `Facebook`,
+    					rowId: `pricelistqw facebook`,
+    					description: `Daftar harga untuk layanan Facebook`
+  					}, {
+    					title: `Youtube`,
+    					rowId: `pricelistqw youtube`,
+    					description: `Daftar harga untuk layanan YouTube`
+  					}, {
+    					title: `Instagram`,
+    					rowId: `pricelistqw instagram`,
+    					description: `Daftar harga untuk layanan Instagram`
+  					}, {
+    					title: `Telegram`,
+    					rowId: `pricelistqw telegram`,
+    					description: `Daftar harga untuk layanan Telegram`
+  					}, {
+    					title: `Tiktok`,
+    					rowId: `pricelistqw tiktok`,
+    					description: `Daftar harga untuk layanan TikTok`
+  					}, {
+    					title: `Twitter`,
+    					rowId: `pricelistqw twitter`,
+    					description: `Daftar harga untuk layanan Twitter`
+          			})
+				let nyobb = [{
+  				title: "Sosmed Store",
+  				rows: list
+				},
+				]
+				conn.sendListMsg(from, `\nPilih daftar harga sesuai dengan yang ingin anda beli.\n\njika anda ingin melihat daftar harga followers maka pilih followers.\n`, `${botname} © 2022`, `PRICE LIST`, `Click Here!`, nyobb, m)
+				}
+				break
+  			case 'pricelistqw':{
+    				/*if (!q) return m.reply(`Mau cek pricelist apa?\n\nList:\nfollower\nlike\nview\n\nContoh penggunaan:\n${prefix}pricelist follower`)
+    				paRegex = /follower|like|view/
+    				if (!paRegex.test(q)) return m.reply(`Parameter *${q}* tidak tersedia!\n\nHanya tersedia\nfollower\nlike\nview`)*/
+    				feta = await fetchJson(`https://ampibismm.my.id/api/json?bot=true&api_key=${global.ApiKey}&action=pricelist&type=${q}`)
 				list = '*List Harga Layanan*\n\n'
 				for (let L of feta.data) {
- 				 list += `name : ${L.nama}\ndesc : ${L.desc}\nmin : ${L.min}\nmax : ${L.max}\nharga : ${L.price}\nid : ${L.id_layanan}\n\n`
+ 				 list += `name : ${L.nama}\ndesc : ${L.desc}\nmin : ${L.min}\nmax : ${L.max}\nharga per 1k : Rp.${L.price}\nid : ${L.id_layanan}\n\n`
 				}
 				conn.sendMessage(from, {text: list}, {quoted:m})
 				console.log(feta)
-				}
-				break
+  			}
+  			break
 			case 'chekstatus':
 			case 'cekstatus': {
 				if (m.isGroup) return m.reply('Fitur Tidak Dapat Digunakan Untuk Group!')
